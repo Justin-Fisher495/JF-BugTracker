@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JF_BugTracker.Models.TicketAttachment>
+@using JF_BugTracker.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+               File Type
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+               Created
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@item.FilePath">
+                        <img src="@AttachmentHelper.GetIcon(item.FilePath)" style="width: 35px;"/>
+                    </a>
+                </td>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>   
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

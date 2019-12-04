@@ -1,0 +1,39 @@
+<script>
+    function stringWalker(word) {
+        for (let i = 0; i < word.length; i++) {
+            value += `The letter in position ${i} is ${wor.substr(i, 1)} \n`;
+        }
+        return value;
+    }
+</script>
+
+
+
+
+<script>
+    function StringWalker2() {
+        let myArray = new Array();
+        for (let i = 0, i < word.length; i++) {
+            myArray.push(word.substr(i, 1));
+        }
+        return myArray.join(", ");
+    }
+
+
+    $("#btnclear").click(function () {
+        $("#outputWord").text("")
+
+    });
+
+
+    function StringWalker3(word) {
+        var reversed = word.split().reverse().join();
+        var message = `the word you entered was: ${word}. That word reversed is: ${reversed}`;
+        return word.reverse().join();
+    }
+    
+</script>
+
+
+
+ljglkgluygfluyvhgkcrtyvliygkuhtftuyvkhtcfuogkhcid7ogkvgfjryfti67iylhugvmcfgjdrtfytuygjhvgdrtjfyghjbvgfchdfrtgyhbjvgfcgdrtfgyhbjvcgdrftyuhkjbgfcngduyhkjgcfgdjtgyhukbjvgcfdrftyuhkjvgcfgxdrftgyuhjbvgcfgdfrtgyhbvgncvnxdgftyuhkbjvgcxdtyuhjghcgdyhujmgcfngxdrftyguhjbvgfgdhfxrtfyghjvgfgdxrftgyhgfxdfrtgyhjbvgbfxdgrtgyhjbvgcfxdrftghbvgfgxdrtyhjvgfcgdfrtyhgjfrgyhjgfgdrtgyhjghfgdrftgyhjgfcxdrtyhujgfrytgyhbgnb

@@ -1,0 +1,131 @@
+﻿@model JF_BugTracker.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedToUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedToUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPriority.PriorityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPriority.PriorityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketStatus.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketStatus.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketType.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketType.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+    </dl>
+</div>
+
+<hr style="border:2px solid black"/>
+
+@foreach (var comment in Model.TicketComments.OrderBy(c => c.CreatedDate))
+{
+    <div class="container mt-3">        
+        <div class="media">           
+            <img src="~/Avatars/default_user.png" class="align-self-start mr-3" style="width:60px"/>
+            <div class="media-body">
+                <h5>Author: @comment.Owner.DisplayName</h5>
+                <h6>Written: @comment.CreatedDate.ToString("MMM dd, yyyy")</h6>
+                @comment.Body
+            </div>
+        </div>
+    </div>
+}
+
+<hr style="border:2px solid black"/>
+
+@if (User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("Create", "TicketComments", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("ticketId", Model.Id)
+        
+
+        @Html.TextArea("Body", new { rows = 5, cols = 50, placeholder = "Add Comment"})
+
+        <button type="submit" class="btn btn-sm btn-dark">Add Comment</button>
+    }
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
