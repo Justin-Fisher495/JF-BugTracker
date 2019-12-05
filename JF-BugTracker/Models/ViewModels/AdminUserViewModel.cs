@@ -13,7 +13,7 @@ namespace JF_BugTracker.Models.ViewModels
 
         public ApplicationUser User { get; set; }
         public MultiSelectList Roles { get; set; }
-        public string[] SelectRoles { get; set; }
+        public string SelectRoles { get; set; }
 
         public AdminUserViewModel()
         {

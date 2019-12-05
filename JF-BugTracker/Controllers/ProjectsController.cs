@@ -54,7 +54,13 @@ namespace JF_BugTracker.Controllers
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(new ProjectDetailViewModel() 
+            {
+              ticketHistories = project.Tickets.SelectMany(t => t.TicketHistories).ToList(),
+              ticketAttachments = project.Tickets.SelectMany(t => t.TicketAttachments).ToList(),
+              Project = project,
+              TicketPriority = project.Tickets.Where(t => t.TicketPriority.PriorityName == "Immediate").ToList().Count()
+            });
         }
 
         // GET: Projects/Create
