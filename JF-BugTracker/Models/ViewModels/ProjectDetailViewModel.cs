@@ -7,7 +7,7 @@ namespace JF_BugTracker.Models.ViewModels
 {
     public class ProjectDetailViewModel : BaseViewModel
     {
-        
+        public ApplicationUser ProjectManager { get; set; }
 
 
         public IEnumerable<TicketHistory> ticketHistories { get; set; }

@@ -41,6 +41,18 @@ namespace JF_BugTracker.Helpers
             }
         }
 
+        public void AddPMToProject(string userId, int projectId)
+        {
+            if (db.Users.Any(u => u.Id == userId))
+            {
+                Project proj = db.Projects.Find(projectId);
+                proj.PMId = userId;
+                
+                db.Entry(proj).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
         public void RemoveUserFromProject(string userId, int projectId)
         {
             if (IsUserOnProject(userId, projectId))

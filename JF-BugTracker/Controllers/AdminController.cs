@@ -56,6 +56,13 @@ namespace JF_BugTracker.Controllers
             return RedirectToAction("ManageRoles", "Admin");
         }
 
+        //[HttpPost]
+        //public ActionResult SetProjectPM(string projectManager, int id)
+        //{
+        //    projectsHelper.AddPMToProject(projectManager, id);
+        //    RedirectToAction("Details", "Projets", new { id = id });
+        //}
+
         //GET: EditUSer
         public ActionResult EditUser(string id)
         {
@@ -91,6 +98,7 @@ namespace JF_BugTracker.Controllers
         {
             ViewBag.UserIds = new MultiSelectList(db.Users, "Id", "DisplayName", db.Projects.First().Users );
             ViewBag.Project = new SelectList(db.Projects, "Id", "Name", db.Projects.First());
+            ViewBag.ProjectManager = new SelectList(roleHelper.UserIsInRole("ProjectManager"), "Id", "DisplayName");
 
             var users = new List<ManageProjectUsersViewModel>();
             foreach (var user in db.Users.ToList())
@@ -106,7 +114,7 @@ namespace JF_BugTracker.Controllers
         //POST: Admin
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ManageProjects(List<string> userIds, int project)
+        public ActionResult ManageProjects(List<string> userIds, int project, string projectManager)
         {
             foreach (var user in db.Users)
             {
@@ -117,7 +125,9 @@ namespace JF_BugTracker.Controllers
                 {
                 projectsHelper.AddUserToProject(userId, project); 
                 }
-           
+
+            projectsHelper.AddPMToProject(projectManager, project);
+
             return RedirectToAction("ManageProjects", "Admin");
         }
     }

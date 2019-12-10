@@ -260,6 +260,7 @@
     <Content Include="WebFonts\fa-brands-400.svg" />
     <Content Include="WebFonts\fa-regular-400.svg" />
     <Content Include="WebFonts\fa-solid-900.svg" />
+    <None Include="Properties\PublishProfiles\JF-BugTracker - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -395,6 +396,7 @@
     <Content Include="Views\Admin\ManageProjects.cshtml" />
     <Content Include="Views\Account\DemoLogin.cshtml" />
     <Content Include="Views\Tickets\AssignTicket.cshtml" />
+    <Content Include="Views\Projects\ProjectTickets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

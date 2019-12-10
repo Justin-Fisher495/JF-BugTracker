@@ -42,6 +42,13 @@ namespace JF_BugTracker.Controllers
 
         }
 
+        public ActionResult ProjectTickets(int id)
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            tickets = db.Projects.Find(id).Tickets.ToList();
+            return View(tickets);
+        }
+
         // GET: Projects/Details/5
         public ActionResult Details(int? id)
         {
@@ -59,7 +66,8 @@ namespace JF_BugTracker.Controllers
               ticketHistories = project.Tickets.SelectMany(t => t.TicketHistories).ToList(),
               ticketAttachments = project.Tickets.SelectMany(t => t.TicketAttachments).ToList(),
               Project = project,
-              TicketPriority = project.Tickets.Where(t => t.TicketPriority.PriorityName == "Immediate").ToList().Count()
+              TicketPriority = project.Tickets.Where(t => t.TicketPriority.PriorityName == "Immediate").ToList().Count(),
+              ProjectManager = db.Users.Find(project.PMId)
             });
         }
 
