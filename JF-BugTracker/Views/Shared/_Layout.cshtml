@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- jQuery Datatables-->
     <link href="~/Content/datatables.min.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -128,9 +129,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @if (User.IsInRole("Admin"))
+                                { 
                                 <li class="nav-item">
                                     @Html.ActionLink("Roles", "ManageRoles", "Admin", new { @class = "nav-link" }, null)
                                 </li>
+                                }
                                 <li>
                                     @Html.ActionLink("Projects", "Index", "Projects", new { @class = "nav-link" }, null)
                                 </li>

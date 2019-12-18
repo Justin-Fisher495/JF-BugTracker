@@ -18,9 +18,12 @@
 
     <!-- Main content -->
     <section class="content">
+        @if (User.IsInRole("Admin") || User.IsInRole("ProjectManager"))
+            {
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
+        }
         <!-- Default box -->
         <div class="card">
             <div class="card-header">

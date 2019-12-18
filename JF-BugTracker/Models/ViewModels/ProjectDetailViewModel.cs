@@ -5,7 +5,7 @@ using System.Web;
 
 namespace JF_BugTracker.Models.ViewModels
 {
-    public class ProjectDetailViewModel : BaseViewModel
+    public class ProjectDetailViewModel
     {
         public ApplicationUser ProjectManager { get; set; }
 

@@ -51,5 +51,45 @@ namespace JF_BugTracker.Helpers
             }
             return imgPath;
         }
+        public static string GetFaClass(string fileName)
+        {
+            var faClass = "";
+            var ext = Path.GetExtension(fileName);
+            switch (ext)
+            {
+                case ".pdf":
+                    faClass = "far fa-fw fa-file-pdf";
+                    break;
+                case ".doc":                    
+                case ".docx":
+                    faClass = "far fa-fw fa-file-word";
+                    break;
+                case ".xls":                 
+                case ".xlsx":
+                    faClass = "far fa-fw fa-file-excel";
+                    break;
+                case ".txt":
+                    faClass = "fa fa-fw fa-file-contract";
+                    break;
+                case ".zip":
+                case ".rar":
+                case ".7z":
+                    faClass = "far fa-fw fa-file-archive";
+                    break;
+                case ".xml":
+                    faClass = "/Images/xml.jfif";
+                    break;
+                case ".jpg":
+                case ".gif":
+                case ".png":
+                    faClass = "far fa-fw fa-file-image";
+                    break;
+                default:
+                    faClass = "/Images/blank.png";
+                    break;
+            }
+            return faClass;
+        }
+
     }
 }

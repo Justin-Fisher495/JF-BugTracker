@@ -22070,9 +22070,34 @@ html.maximized-card {
     -ms-flex-pack: center;
     justify-content: center;
     /*background-image: url('../Images/bugtrackerbackground.jpeg');*/
-    background-image: url('../Images/arizona-desert-painted-landscape.jpg');
+   
 }
+.LIPage_background {background: transparent;}
+    .LIPage_background:after {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        display: block;
+        background: url('../Images/ws_Gray_Pattern_1280x1024.jpg') no-repeat 50% 50%;
+        background-size: cover;
+    }
 
+{
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+    background: url(http://www.pmob.co.uk/mobile/images/a1.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
 .login-box, .register-box {
     width: 360px
 }

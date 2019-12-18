@@ -26,97 +26,152 @@
     <link href="~/Content/adminlte.min.css" rel="stylesheet" />
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style>
+        .demoLogin_card {
+            position: !important absolute;
+            right: 10em;
+        }
+
+        .demoLogin_tile {
+            max-height: 400px;
+            max-width: 350px;
+        }
+
+        .fa-jedi-order {
+            font-size: 30px;
+            color: lightgray;
+            opacity: 0.6;
+            overflow: visible;
+        }
+
+        .grey_text {
+            color: darkslategrey
+        }
+
+       
+    </style>
 </head>
-<body>
+<body class="register-page">
+    <div class="LIPage_background">
+        <div class="login-box">
+            <div class="card-header" style="padding: 2em">
+                <div class="login-logo">
+                    <div class="card bg-gradient-dark">
 
-    <div class="row text-center">
-        <div class="card">
-            <div class="card-header">
-                <i class="fab fa-jedi-order"></i>
+                        <a style="color:white;"><b>JägerwanzenBT</b></a>
+
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Hidden("emailKey", "DemoAdminEmail")
-                    <p>
-                        Login as a user in the Admin Role
-                    </p>
-                    <button type="submit" class="btn btn-sm btn-dark">Login</button>
+            <div class="card demoLogin_card" style="width:650px; height:450px">
+
+                <div class="card-body bg-gradient-dark">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card demoLogin_tile">
+                                <div class="card-header">
+                                    <i class="fab fa-jedi-order fa-pull-right"></i>
+                                </div>
+                                <div class="card-body demoLogin_tile" style="min-height: 150px">
+                                    @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("emailKey", "DemoAdminEmail")
+                                        <p class="text-center grey_text">
+                                            Login as a user in the Admin Role
+                                        </p>
+                                        <br />
+
+                                        <p class="text-center">
+                                            <button type="submit" class="btn btn-sm btn-dark" style="width:45%">Login</button>
+                                        </p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card demoLogin_tile">
+                                <div class="card-header">
+                                    <i class="fab fa-jedi-order fa-pull-right"></i>
+                                </div>
+                                <div class="card-body demoLogin_tile">
+                                    @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("emailKey", "DemoPMEmail")
+                                        <p class="text-center grey_text">
+                                            Login as a user in the Project Manager Role
+                                        </p>
+                                        <p class="text-center">
+
+                                            <button type="submit" class="btn btn-sm btn-dark" style="width:45%">Login</button>
+                                        </p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-                }
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card demoLogin_tile">
+                                <div class="card-header">
+                                    <i class="fab fa-jedi-order fa-pull-right"></i>
+                                </div>
+                                <div class="card-body demoLogin_tile">
+                                    @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("emailKey", "DemoDeveloperEmail")
+                                        <p class="text-center grey_text">
+                                            Login as a user in the Developer Role
+                                        </p>
+                                        <p class="text-center">
+                                            <button type="submit" class="btn btn-sm btn-dark" style="width:45%">Login</button>
+                                        </p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card demoLogin_tile">
+                                <div class="card-header">
+                                    <i class="fab fa-jedi-order fa-pull-right"></i>
+                                </div>
+                                <div class="card-body demoLogin_tile">
+                                    @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("emailKey", "DemoSubmitterEmail")
+                                        <p class="text-center grey_text">
+                                            Login as a user in the Submitter Role
+                                        </p>
+                                        <p class="text-center">
+                                            <button type="submit" class="btn btn-sm btn-dark" style="width:45%">Login</button>
+                                        </p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <div class="card-header">
-                <i class="fab fa-jedi-order"></i>
-            </div>
-            <div class="card-body">
-                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Hidden("emailKey", "DemoPMEmail")
-                    <p>
-                        Login as a user in the Project Manager Role
-                    </p>
-                    <button type="submit" class="btn btn-sm btn-dark">Login</button>
-
-
-                }
-            </div>
-        </div>
-    </div>
-
-    <div class="row text-center">
-        <div class="card">
-            <div class="card-header">
-                <i class="fab fa-jedi-order"></i>
-            </div>
-            <div class="card-body">
-                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Hidden("emailKey", "DemoDeveloperEmail")
-                    <p>
-                        Login as a user in the Developer Role
-                    </p>
-                    <button type="submit" class="btn btn-sm btn-dark">Login</button>
-
-
-                }
-            </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="fab fa-jedi-order"></i>
-            </div>
-            <div class="card-body">
-                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Hidden("emailKey", "DemoSubmitterEmail")
-                    <p>
-                        Login as a user in the Submitter Role
-                    </p>
-                    <button type="submit" class="btn btn-sm btn-dark">Login</button>
 
 
-                }
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- jQuery -->
-    <script src="~/Scripts/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/Scripts/adminlte.min.js"></script>
-</body>
+        <!-- jQuery -->
+        <script src="~/Scripts/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/Scripts/adminlte.min.js"></script>
+    </body>
 </html>

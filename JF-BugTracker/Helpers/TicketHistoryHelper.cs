@@ -98,5 +98,15 @@ namespace JF_BugTracker.Helpers
 
             db.SaveChanges();
         }
+
+        public IEnumerable<TicketHistory> GetProjectHistories(Project project)
+        {
+            List<TicketHistory> ticketHistories = new List<TicketHistory>();
+                foreach ( var ticket in project.Tickets)
+            {
+                ticketHistories.AddRange(ticket.TicketHistories);
+            }
+            return ticketHistories.OrderByDescending(tH => tH.Changed);
+        }
     }
 }

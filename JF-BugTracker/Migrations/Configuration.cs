@@ -195,18 +195,39 @@ namespace JF_BugTracker.Migrations
                 p => p.Name,
                     new Project { Name = "JF-Blog", Description = "Blog project on Azure", CreatedDate = DateTime.Now},
                     new Project { Name = "JF-Portfolio", Description = "Porfolio Project", CreatedDate = DateTime.Now},
-                    new Project { Name = "JF-BugTracker", Description = "BugTracker Project", CreatedDate = DateTime.Now}
+                    new Project { Name = "JF-BugTracker", Description = "BugTracker Project", CreatedDate = DateTime.Now},
+                    new Project { Name = "JF-OOPGame", Description = "Object Object-oriented programming game", CreatedDate = DateTime.Now },
+                    new Project { Name = "JF-StringArt", Description = "String Art App", CreatedDate = DateTime.Now}
                 );
 
             context.SaveChanges();
 
-            //var projects = context.Projects;
+            //var projects = context.Projects.ToList();
+            //var tickets = context.TicketStatuses.ToList();
+            //foreach (var project in projects)
+            //{
 
-            //context.Tickets.AddOrUpdate(
-            //    t => t.Title,
-            //        new Ticket { ProjectId = projects.FirstOrDefault(p => p.Name.Contains("Blog")).Id }
+            //    for (var i = 0; i < 6; i++)
+            //    {
 
-            //    );
+            //        context.Tickets.AddOrUpdate(
+            //                    t => t.Title,
+            //                    new Ticket
+            //                    {
+            //                        ProjectId = project.Id,
+            //                        TicketTypeId =  ,
+            //                        TicketPriorityId = priority.Id,
+            //                        TicketStatusId = status.Id,
+            //                        OwnerUserId = demosubmitter.Id,
+            //                        AssignedToUserId = demodeveloper.Id,
+            //                        Title = project.Name + " Demo Ticket " + count,
+            //                        Description = "A demo ticket of priority '" + priority.Name + "', type '" + type.Name + "', status '" + status.Name + "'",
+            //                        Created = DateTime.Now
+            //                    });
+            //    }
+            //}
+
+
 
             #endregion
 
