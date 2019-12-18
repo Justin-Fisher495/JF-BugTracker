@@ -3,76 +3,111 @@
     ViewBag.Title = "ManageRoles";
 }
 <style>
-    .cntlWide{
+    .cntlWide {
         width: 100%;
-        max-width:100%;
+        max-width: 100%;
         margin: 2%
     }
 
-    .lstBoxTall{
+    .lstBoxTall {
         height: 100px
     }
-   .tablemanageroles{
-       margin:5px
-   }
+
+    .tablemanageroles {
+        margin: 5px
+    }
+
+    .managerolescards {
+        position: !important absolute;
+            left: 16.25em;
+    }
+    .managerolescards2{
+         position: !important absolute;
+            left: 16em;
+    }
 </style>
 
 
-<h2>ManageRoles</h2>
 
-<div class="row">
-    <div class="col-md-6">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card managerolescards">
+                    <div class="card-header"><h2>Manage Roles</h2></div>
+                    <div class="card-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-            <div class="row">
-                <div class="col-md-12">@Html.ListBox("UserIds", null, new { @class="cntlWide lstBoxTall" })</div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">@Html.DropDownList("Role", null,"-- Select One --", new { @class = "cntlWide" })</div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary cntlWide">Submit</button>
+                            <div class="row">
+                                <div class="col-md-12">@Html.ListBox("UserIds", null, new { @class = "cntlWide lstBoxTall" })</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">@Html.DropDownList("Role", null, "-- Select One --", new { @class = "cntlWide" })</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary cntlWide">Submit</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+
                 </div>
             </div>
-        }
+        </div>
+        <div class="col-md-6">
+            <div class="card managerolescards2">
+                <div class="card-header"><h3>Current Users</h3></div>
+                <div class="card-body">
+                    <table class="table tablemanageroles" id="userTable1">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.DisplayName("User Name")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Role")
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(model => user.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => user.RoleName)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
-    <div class="col-md-6">
-        <table class="table tablemanageroles">
-            <tr>
-                
-                <th>
-                    @Html.DisplayName("User Name")
-                </th>
-                <th>
-                    @Html.DisplayName("Role")
-                </th>
-                <th></th>
-            </tr>
+</section>
+@section Scripts{
 
-            @foreach (var user in Model)
-            {
-                <tr>
-                    
-                    <td>
-                        @Html.DisplayFor(model => user.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => user.RoleName)
-                    </td>
-                   
-                </tr>
-            }
+    <script>
+        $("#userTable1").DataTable();
+    </script>
 
-        </table>
+}
 
 
-
-
-
-
-
-    </div>
-</div>

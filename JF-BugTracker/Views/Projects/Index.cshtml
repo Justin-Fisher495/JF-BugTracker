@@ -1,101 +1,124 @@
-﻿@model JF_BugTracker.Models.ViewModels.ProjectIndexViewModel
+﻿@using JF_BugTracker.Helpers
+@model IEnumerable<JF_BugTracker.Models.Project>
+
+
 @{
     ViewBag.Title = "Index";
+    var projectHelper = new ProjectsHelper();
 }
 
-<!-- Content Wrapper. Contains page content -->
-<div style="margin-left:2%; margin-right:2%">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Projects</h1>
+@*Content Wrapper. Contains page content
+    <div style="margin-left:2%; margin-right:2%">
+         Content Header (Page header)
+
+
+         Main content
+        <section class="content">
+
+             Default box
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3 class="card-title">All Projects</h3>
+                        </div>
+                        <div class="col-md-2">
+                            @if (User.IsInRole("Admin") || User.IsInRole("ProjectManager"))
+                            {
+                                <p>
+                                    @Html.ActionLink("+ Create New", "Create")
+                                </p>
+                            }
+                        </div>
+
+
+
+
+                    </div>
                 </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+                <div class="card-body">
 
-    <!-- Main content -->
-    <section class="content">
-        @if (User.IsInRole("Admin") || User.IsInRole("ProjectManager"))
-            {
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        }
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"></h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body">
-
-                <table class="table" id="projectstable">
-                    <thead>
-                        <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                CreatedDate
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Projects)
-                        {
+                    <table class="table" id="projectstable">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
+                                <th>
+                                    Id
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    CreatedDate
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Projects)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                 /.card-body
+                <div class="card-footer">
 
+                </div>
+                 /.card-footer
             </div>
-            <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
+             /.card
 
-    </section>
-    <!-- /.content -->
+        </section>
+         /.content
+    </div>
+     /.content-wrapper*@
+<div class="container">
+    <div class="row" style="padding-top:2%"></div>
+    <div class="row">
+
+        @foreach (var project in Model)
+        {
+            <div class="col-md-4">
+                <a href="@Url.Action("Details","Projects", new { id = project.Id })">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-project-diagram"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-number">@project.Name</span>
+                            <span class="info-box-text">
+                                @project.Description
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
 </div>
-<!-- /.content-wrapper -->
 
 @section Scripts {
     <script>

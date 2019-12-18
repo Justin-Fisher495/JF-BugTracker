@@ -1,12 +1,11 @@
-﻿
-<!-- Content Header (Page header) -->
+﻿<!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">Dashboard</h1>
             </div><!-- /.col -->
-           
+
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
@@ -14,6 +13,72 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="@Url.Action("Index","Projects","Projects")">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-gradient-danger elevation-1"><i class="fas fa-project-diagram"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Projects</span>
+                            <span class="info-box-number">
+                                10
+                                <small>%</small>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="@Url.Action("Index","Tickets","Tickets")">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-gradient-info elevation-1"><i class="fas fa-ticket-alt"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Tickets</span>
+                            <span class="info-box-number">
+                                10
+                                <small>%</small>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="@Url.Action("Index","Projects","Projects")">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-gradient-olive elevation-1"><i class="fas fa-user"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">People</span>
+                            <span class="info-box-number">
+                                10
+                                <small>%</small>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <a href="@Url.Action("Manageroles","Admin","Admin")">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-scroll"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Manage</span>
+                            <span class="info-box-number">
+                                10
+                                <small>%</small>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -153,21 +218,21 @@
         <div class="row">
             <!-- Left col -->
             <div class="col-md-8">
-                
-                
+
+
                 <div class="row">
                     <div class="col-md-6">
-                        
+
                     </div>
                     <!-- /.col -->
 
                     <div class="col-md-6">
-                       
+
                     </div>
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
-                
+
             </div>
             <!-- /.col -->
 
@@ -284,11 +349,12 @@
                     <!-- /.footer -->
                 </div>
                 <!-- /.card -->
-               
+
             </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->
     </div><!--/. container-fluid -->
+    </div>
 </section>
 <!-- /.content -->

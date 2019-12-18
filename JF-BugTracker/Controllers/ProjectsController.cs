@@ -24,20 +24,20 @@ namespace JF_BugTracker.Controllers
         {
             if (roleHelper.IsUserInRole(User.Identity.GetUserId(), "Admin"))
             {
-                var viewModel = new ProjectIndexViewModel()
-                {
-                    Projects = db.Projects.ToList()
-                };
-                return View(viewModel);
+                //var viewModel = new ProjectIndexViewModel()
+                //{
+                //    Projects = db.Projects.ToList()
+                //};
+                return View(db.Projects.ToList());
             }
             else
             {
-                var viewModel = new ProjectIndexViewModel()
-                {
-                    Projects = projectHelper.ListUserProjects(User.Identity.GetUserId()).ToList()
+                //var viewModel = new ProjectIndexViewModel()
+                //{
+                //    Projects = projectHelper.ListUserProjects(User.Identity.GetUserId()).ToList()
 
-                };
-                return View(viewModel);
+                //};
+                return View(projectHelper.ListUserProjects(User.Identity.GetUserId()).ToList());
             }
 
         }

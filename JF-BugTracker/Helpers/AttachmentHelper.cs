@@ -69,7 +69,7 @@ namespace JF_BugTracker.Helpers
                     faClass = "far fa-fw fa-file-excel";
                     break;
                 case ".txt":
-                    faClass = "fa fa-fw fa-file-contract";
+                    faClass = "fa fa-fw fa-file-alt";
                     break;
                 case ".zip":
                 case ".rar":
